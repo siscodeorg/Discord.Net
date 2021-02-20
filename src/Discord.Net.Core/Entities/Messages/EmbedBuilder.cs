@@ -659,6 +659,16 @@ namespace Discord
             return this;
         }
 
+        public EmbedAuthorBuilder() {
+        }
+
+        public EmbedAuthorBuilder(EmbedAuthor author)
+        {
+            _name = author.Name;
+            _url = author.Url;
+            _iconUrl = author.IconUrl;
+        }
+
         /// <summary>
         ///     Builds the author field to be used.
         /// </summary>
