@@ -738,6 +738,15 @@ namespace Discord
             return this;
         }
 
+        public EmbedFooterBuilder() {
+        }
+
+        public EmbedFooterBuilder(EmbedFooter footer)
+        {
+            _text = footer.Text;
+            _iconUrl = footer.IconUrl;
+        }
+
         /// <summary>
         ///     Builds the footer field to be used.
         /// </summary>
