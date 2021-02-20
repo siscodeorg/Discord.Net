@@ -40,6 +40,20 @@ namespace Discord
             Fields = new List<EmbedFieldBuilder>();
         }
 
+        public EmbedBuilder(IEmbed embed)
+        {
+            _title = embed.Title;
+            _description = embed.Description;
+            _url = embed.Url;
+            _image = embed.Image;
+            _thumbnail = embed.Thumbnail;
+            _fields = embed.Fields.Select(x => new EmbedFieldBuilder(x)).ToList();
+            Timestamp = embed.Timestamp;
+            Color = embed.Color;
+            if(embed.Author.HasValue) Author = new EmbedAuthorBuilder(embed.Author.Value);
+            if(embed.Footer.HasValue) Footer = new EmbedFooterBuilder(embed.Footer.Value);
+        }
+
         /// <summary> Gets or sets the title of an <see cref="Embed"/>. </summary>
         /// <exception cref="ArgumentException" accessor="set">Title length exceeds <see cref="MaxTitleLength"/>.
         /// </exception>
