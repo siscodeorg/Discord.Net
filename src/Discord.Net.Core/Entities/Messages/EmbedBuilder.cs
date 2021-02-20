@@ -532,6 +532,17 @@ namespace Discord
             return this;
         }
 
+        public EmbedFieldBuilder(EmbedField field)
+        {
+            _name = field.Name;
+            _value = field.Value;
+            IsInline = field.Inline;
+        }
+
+        public EmbedFieldBuilder() {
+
+        }
+
         /// <summary>
         ///     Builds the field builder into a <see cref="EmbedField" /> class.
         /// </summary>
